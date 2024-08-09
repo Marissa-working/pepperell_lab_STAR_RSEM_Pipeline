@@ -11,7 +11,6 @@ VARS fastqc2 RUN="${run}"
 JOB bwa	bwaMEM.submit
 VARS bwa RUN="${run}"
 VARS bwa REF="${ref}"
-SCRIPT POST bwa /bin/rm /staging/groups/pepperell_group/Mtb_RNAseq/Results/${run}_1P.fq.gz /staging/groups/pepperell_group/Mtb_RNAseq/Results/${run}_2P.fq.gz
 
 JOB view samtools_view.submit
 VARS view RUN="${run}"
@@ -32,9 +31,17 @@ VARS count ANNOT_GTF="${annot_gtf}"
 JOB cleanup dummy.submit NOOP
 SCRIPT POST cleanup /bin/rm /staging/groups/pepperell_group/Mtb_RNAseq/Results/${run}.sort.bam.gz 
 
+JOB bowtie bowtie.submit
+VARS bowtie RUN="${run}"
+VARS bowtie REF="${ref}"
+
+JOB cleanup_1P dummy.submit NOOP
+SCRIPT POST cleanup_1P /bin/rm /staging/groups/pepperell_group/Mtb_RNAseq/Results/${run}_1P.fq.gz /staging/groups/pepperell_group/Mtb_RNAseq/Results/${run}_2P.fq.gz
+
 PARENT fastqc CHILD trim
 PARENT trim CHILD fastqc2
-PARENT fastqc2 CHILD bwa
+PARENT fastqc2 CHILD bwa bowtie
+PARENT bwa bowtie CHILD cleanup_1P
 PARENT bwa CHILD view
 PARENT view CHILD sort
 PARENT sort CHILD qc count

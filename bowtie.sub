@@ -4,9 +4,9 @@ requirements = (Target.HasCHTCStaging==TRUE)
 arguments = "$(REF) $(RUN)"
 executable = bowtie.sh
 
-output = bwaMEM_$(RUN).out
-error = bwaMEM_$(RUN).err
-log = bwaMEM_$(RUN).log
+output = bowtie_$(RUN).out
+error = bowtie_$(RUN).err
+log = bowtie_$(RUN).log
 
 # Rules to transfer and transferring files
 transfer_executable = TRUE

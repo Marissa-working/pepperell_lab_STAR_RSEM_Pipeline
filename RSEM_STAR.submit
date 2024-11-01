@@ -16,7 +16,7 @@ when_to_transfer_output = ON_EXIT
 staging_prefix = file:///staging/groups/pepperell_group/Mtb_RNAseq
 #results_staging_prefix = file:///staging/groups/pepperell_group/Mtb_RNAseq
 
-transfer_input_files = RSEM_STAR.sh, $(staging_prefix)/3151_18_S12_R1_001.fastq.gz , $(staging_prefix)/3151_18_S12_R2_001.fastq.gz, $(staging_prefix)/MtbNCBIH37Rv.fa,$(staging_prefix)/MtbNCBIH37Rv_ncRNAs_sORFs.gtf
+transfer_input_files = RSEM_STAR.sh, clear_space.py, $(staging_prefix)/3151_18_S12_R1_001.fastq.gz , $(staging_prefix)/3151_18_S12_R2_001.fastq.gz, $(staging_prefix)/MtbNCBIH37Rv.fa,$(staging_prefix)/MtbNCBIH37Rv_ncRNAs_sORFs.gtf
 transfer_output_files = Quant.isoforms.results
 # transfer_output_remaps = "$(RUN)_RSEM_STARCounts.txt = $(results_staging_prefix)/$(RUN)_RSEM_STARCounts.txt"
 

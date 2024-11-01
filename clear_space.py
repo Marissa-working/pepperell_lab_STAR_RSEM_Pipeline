@@ -1,5 +1,5 @@
 import re
-
+import sys
 def replace_spaces_in_ids(gtf_file):
     # Regular expressions to match transcript_id, gene_id, and gene_name
     transcript_pattern = re.compile(r'transcript_id "([^"]+)"')
@@ -19,10 +19,14 @@ def replace_spaces_in_ids(gtf_file):
             
             outfile.write(line)
 
-# Get input from the user
-gtf_file = input("Enter the path to your GTF file: ")
+if __name__ == "__main__":
+    if len(sys.argv) < 2:
+        print("Usage: python script.py <path_to_gtf_file>")
+        sys.exit(1)
 
-# Process the file in-place
-replace_spaces_in_ids(gtf_file)
+    # Read the filename from the first command-line argument
+    gtf_file = sys.argv[1]
 
-print(f"Processed file: {gtf_file}")
+    # Process the file in-place
+    replace_spaces_in_ids(gtf_file)
+    print(f"Processed file: {gtf_file}")

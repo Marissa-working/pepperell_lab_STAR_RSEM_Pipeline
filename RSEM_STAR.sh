@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Note: Shell variables assignment cannot have space
-RSEMgenomeDir=testing
+RSEMgenomeDir=rsem
 STARgenomeDir=star
 ANNOTATION=MtbNCBIH37Rv_ncRNAs_sORFs.gtf
 GENOME=MtbNCBIH37Rv.fa

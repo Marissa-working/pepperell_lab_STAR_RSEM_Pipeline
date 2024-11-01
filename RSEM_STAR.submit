@@ -1,0 +1,29 @@
+# Give Docker and argument and then set output, error, and log.
+universe = Docker
+docker_image = continuumio/miniconda3
+#arguments = "$(RUN) $(ANNOT_GTF)"
+executable = RSEM_STAR.sh
+
+output = RSEM_STAR_$(RUN).out
+error = RSEM_STAR_$(RUN).err
+log = RSEM_STAR_$(RUN).log
+
+# Rules to transfer and transferring files
+transfer_executable = TRUE
+should_transfer_files = YES
+when_to_transfer_output = ON_EXIT
+
+staging_prefix = file:///staging/groups/pepperell_group/Mtb_RNAseq
+results_staging_prefix = file:///staging/groups/pepperell_group/Mtb_RNAseq
+
+transfer_input_files = RSEM_STAR.sh, $(staging_prefix)/3151_18_S12_R1_001.fastq.gz , $(staging_prefix)/3151_18_S12_R2_001.fastq.gz, $(staging_prefix)/MtbNCBIH37Rv.fa,$(staging_prefix)/MtbNCBIH37Rv_ncRNAs_sORFs.gtf
+transfer_output_files = Quant.isoforms.results
+# transfer_output_remaps = "$(RUN)_RSEM_STARCounts.txt = $(results_staging_prefix)/$(RUN)_RSEM_STARCounts.txt"
+
+# Resource request and Queue job
+requirements = (Target.HasCHTCStaging==TRUE)
+request_cpus = 8
+request_memory = 80GB
+request_disk = 20 GB
+
+queue

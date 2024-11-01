@@ -7,6 +7,7 @@ ANNOTATION=MtbNCBIH37Rv_ncRNAs_sORFs.gtf
 GENOME=MtbNCBIH37Rv.fa
 threads=8
 nThreadsSTAR=8
+nThreadsRSEM=8
 read1=3151_18_S12_R1_001.fastq.gz
 read2=3151_18_S12_R2_001.fastq.gz
 

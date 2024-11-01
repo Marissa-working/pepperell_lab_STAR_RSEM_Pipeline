@@ -1,9 +1,5 @@
 #!/bin/bash
 
-# install rsem, star(python is also needed)
-conda install bioconda::rsem
-conda install bioconda::star
-
 # Note: Shell variables assignment cannot have space
 $RSEMgenomeDir=testing
 $STARgenomeDir=star

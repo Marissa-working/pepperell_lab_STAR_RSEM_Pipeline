@@ -18,7 +18,7 @@ mkdir $STARgenomeDir
 STAR --runThreadN $threads --runMode genomeGenerate \
                         --genomeDir $STARgenomeDir --genomeFastaFiles $GENOME \
                         --sjdbGTFfile $ANNOTATION --sjdbOverhang 100 \
-                        --outFileNamePrefix $STARgenomeDir
+                        --outFileNamePrefix $STARgenomeDir --genomeSAindexNbases 10
 STAR --genomeDir $STARgenomeDir --readFilesIn $read1 $read2 \
                         --readFilesCommand zcat --outFilterType BySJout --outSAMunmapped Within \
                         --outSAMtype BAM SortedByCoordinate --outSAMattrIHstart 0 \

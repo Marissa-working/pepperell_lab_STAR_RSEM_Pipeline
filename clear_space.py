@@ -21,7 +21,7 @@ def replace_spaces_in_ids(gtf_file):
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
-        print("Usage: python script.py <path_to_gtf_file>")
+        print("Usage: python clear_space.py <path_to_gtf_file>")
         sys.exit(1)
 
     # Read the filename from the first command-line argument

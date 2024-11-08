@@ -1,0 +1,35 @@
+JOB fastqc fastqc1.submit
+VARS fastqc RUN="${run}"
+
+JOB trim trimmomatic.submit
+VARS trim RUN="${run}"
+# SCRIPT POST trim /bin/rm /staging/groups/pepperell_group/Mtb_RNAseq/${run}_R1_001.fastq.gz /staging/groups/pepperell_group/Mtb_RNAseq/${run}_R2_001.fastq.gz
+
+JOB fastqc2 fastqc2.submit
+VARS fastqc2 RUN="${run}"
+
+JOB star STAR.submit
+VARS star RUN="${run}"
+VARS star REF="${ref}"
+VARS star ANNOT_GTF="${annot_gtf}"
+# SCRIPT POST star /bin/rm /staging/groups/pepperell_group/Mtb_RNAseq/Results/${run}_1P.fq.gz /staging/groups/pepperell_group/Mtb_RNAseq/Results/${run}_2P.fq.gz
+
+JOB rsem RSEM.submit
+VARS rsem RUN="${run}"
+VARS rsem REF="${ref}"
+VARS rsem ANNOT_GTF="${annot_gtf}"
+# SCRIPT POST rsem /bin/rm /staging/groups/pepperell_group/Mtb_RNAseq/Results/${run}_1P.fq.gz /staging/groups/pepperell_group/Mtb_RNAseq/Results/${run}_2P.fq.gz
+
+JOB qc qualimapQC.submit
+VARS qc RUN="${run}"
+VARS qc ANNOT_GTF="${annot_gtf}"
+
+JOB cleanup dummy.submit NOOP
+# SCRIPT POST cleanup /bin/rm /staging/groups/pepperell_group/Mtb_RNAseq/Results/${run}.sort.bam.gz 
+
+PARENT fastqc CHILD trim
+PARENT trim CHILD fastqc2
+PARENT fastqc2 CHILD star
+PARENT star CHILD rsem
+PARENT star CHILD qc
+PARENT rsem qc CHILD cleanup

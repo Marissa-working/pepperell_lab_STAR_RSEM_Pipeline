@@ -38,7 +38,7 @@ with open(args.input, 'r') as infile:
             #variableMap['annot_gff'] = args.gff
             variableMap['annot_gtf'] = args.gtf
             variableMap['run'] = inputList[0]
-            with open('{0}_RNAseq.dag'.format(variableMap['run']), 'w') as dagfile:
+            with open('{0}_TPM.dag'.format(variableMap['run']), 'w') as dagfile:
                 out = template.substitute(variableMap)
                 dagfile.write(out)
 

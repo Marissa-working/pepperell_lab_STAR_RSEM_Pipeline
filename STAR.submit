@@ -14,7 +14,7 @@ should_transfer_files = YES
 when_to_transfer_output = ON_EXIT
 
 staging_prefix = file:///staging/groups/pepperell_group/Mtb_RNAseq
-results_staging_prefix = file:///staging/groups/pepperell_group/Mtb_RNAseq
+results_staging_prefix = file:///staging/groups/pepperell_group/Mtb_RNAseq/Results
 
 transfer_input_files = STAR.sh, clear_space.py, $(results_staging_prefix)/$(RUN)_1P.fq.gz , $(results_staging_prefix)/$(RUN)_2P.fq.gz $(staging_prefix)/$(REF),$(staging_prefix)/$(ANNOT_GTF)
 transfer_output_files = $(RUN)_Aligned.toTranscriptome.out.bam

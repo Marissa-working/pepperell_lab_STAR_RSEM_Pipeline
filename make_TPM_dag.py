@@ -28,7 +28,7 @@ with open(args.dagtemplate, 'r') as template_file:
     template = Template(template_file.read())
 
 with open(args.input, 'r') as infile:
-    outFile = args.input.split('.')[0]+'_topLevel.dag'
+    outFile = args.input.split('.')[0]+'_TPM_topLevel.dag'
     with open(outFile, 'w') as output:
         for line in infile:
             line = line.strip('\n')
@@ -42,4 +42,4 @@ with open(args.input, 'r') as infile:
                 out = template.substitute(variableMap)
                 dagfile.write(out)
 
-            output.write('SPLICE {0} {0}_RNAseq.dag\n'.format(variableMap['run']))
+            output.write('SPLICE {0} {0}_TPM.dag\n'.format(variableMap['run']))

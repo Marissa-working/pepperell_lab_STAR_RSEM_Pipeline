@@ -2,3 +2,5 @@
 *.gtf
 *.bam
 *.fastq.gz
+*.dag
+input.txt

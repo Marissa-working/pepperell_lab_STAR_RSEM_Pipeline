@@ -1,7 +1,7 @@
 # Give Docker and argument and then set output, error, and log.
 universe = Docker
 docker_image = marissazhang/rsem
-#arguments = "$(RUN) $(REF) $(ANNOT_GTF)"
+arguments = "$(RUN) $(REF) $(ANNOT_GTF)"
 executable = RSEM.sh
 
 output = RSEM_$(RUN).out

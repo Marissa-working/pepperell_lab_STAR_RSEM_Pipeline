@@ -4,9 +4,9 @@ docker_image = marissazhang/rsem
 #arguments = "$(RUN) $(REF) $(ANNOT_GTF)"
 executable = RSEM.sh
 
-output = RSEM_STAR_$(RUN).out
-error = RSEM_STAR_$(RUN).err
-log = RSEM_STAR_$(RUN).log
+output = RSEM_$(RUN).out
+error = RSEM_$(RUN).err
+log = RSEM_$(RUN).log
 
 # Rules to transfer and transferring files
 transfer_executable = TRUE
@@ -18,7 +18,7 @@ results_staging_prefix = file:///staging/groups/pepperell_group/Mtb_RNAseq/Resul
 
 transfer_input_files = RSEM.sh, $(staging_prefix)/$(REF),$(staging_prefix)/$(ANNOT_GTF), $(results_staging_prefix)/$(RUN)_Aligned.toTranscriptome.out.bam
 transfer_output_files = $(RUN).isoforms.results
-# transfer_output_remaps = "$(RUN)_RSEM_STARCounts.txt = $(results_staging_prefix)/$(RUN)_RSEM_STARCounts.txt"
+# transfer_output_remaps = "$(RUN)_RSEM_Counts.txt = $(results_staging_prefix)/$(RUN)_RSEM_Counts.txt"
 
 # Resource request and Queue job
 requirements = (Target.HasCHTCStaging==TRUE)

@@ -22,8 +22,8 @@ transfer_output_remaps = "$(RUN)_Aligned.toTranscriptome.out.bam = $(results_sta
 
 # Resource request and Queue job
 requirements = (Target.HasCHTCStaging==TRUE)
-request_cpus = 8
-request_memory = 80GB
-request_disk = 20GB
+request_cpus = 1
+request_memory = 20GB
+request_disk = 5GB
 
 queue

@@ -8,6 +8,9 @@ RSEMgenomeDir=rsem
 threads=8
 nThreadsRSEM=8
 
+# Replace the space in gtf file with underline
+python3 clear_space.py $ANNOTATION
+
 # RSEM, require Aligned.toTranscriptome.out.bam file
 mkdir $RSEMgenomeDir
 rsem-prepare-reference --gtf $ANNOTATION $GENOME $RSEMgenomeDir/RSEMref

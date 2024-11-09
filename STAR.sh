@@ -3,7 +3,7 @@
 # Note: Shell variables assignment cannot have space
 # Input files are output files of trim
 read1=$1_1P.fq.gz
-read2=$2_2P.fq.gz
+read2=$1_2P.fq.gz
 GENOME=$2
 ANNOTATION=$3
 STARgenomeDir=star

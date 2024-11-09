@@ -1,7 +1,7 @@
 # Give Docker and argument and then set output, error, and log.
 universe = Docker
 docker_image = marissazhang/star
-#arguments = "$(RUN) $(REF) $(ANNOT_GTF)"
+arguments = "$(RUN) $(REF) $(ANNOT_GTF)"
 executable = STAR.sh
 
 output = STAR_$(RUN).out

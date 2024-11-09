@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Note: Shell variables assignment cannot have space
-BAM=$1.Aligned.toTranscriptome.out.bam
+BAM=$1_Aligned.toTranscriptome.out.bam
 GENOME=$2
 ANNOTATION=$3
 RSEMgenomeDir=rsem

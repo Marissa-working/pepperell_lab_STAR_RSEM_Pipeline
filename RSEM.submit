@@ -18,7 +18,7 @@ results_staging_prefix = file:///staging/groups/pepperell_group/Mtb_RNAseq/Resul
 
 transfer_input_files = RSEM.sh, clear_space.py, $(staging_prefix)/$(REF),$(staging_prefix)/$(ANNOT_GTF), $(results_staging_prefix)/$(RUN)_Aligned.toTranscriptome.out.bam
 transfer_output_files = $(RUN).isoforms.results
-# transfer_output_remaps = "$(RUN)_RSEM_Counts.txt = $(results_staging_prefix)/$(RUN)_RSEM_Counts.txt"
+transfer_output_remaps = "$(RUN).isoforms.results = $(results_staging_prefix)/$(RUN).isoforms.results"
 
 # Resource request and Queue job
 requirements = (Target.HasCHTCStaging==TRUE)

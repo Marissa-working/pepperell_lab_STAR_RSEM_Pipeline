@@ -3,4 +3,5 @@
 *.bam
 *.fastq.gz
 *.dag
-input.txt
+*.txt
+*.isoforms.results
